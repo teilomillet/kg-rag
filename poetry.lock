@@ -386,6 +386,20 @@ testing = ["covdefaults (>=2.3)", "coverage (>=7.3.2)", "diff-cover (>=8.0.1)", 
 typing = ["typing-extensions (>=4.8)"]
 
 [[package]]
+name = "fire"
+version = "0.6.0"
+description = "A library for automatically generating command line interfaces."
+optional = false
+python-versions = "*"
+files = [
+    {file = "fire-0.6.0.tar.gz", hash = "sha256:54ec5b996ecdd3c0309c800324a0703d6da512241bc73b553db959d98de0aa66"},
+]
+
+[package.dependencies]
+six = "*"
+termcolor = "*"
+
+[[package]]
 name = "frozenlist"
 version = "1.4.1"
 description = "A list-like structure which implements collections.abc.MutableSequence"
@@ -693,6 +707,45 @@ files = [
 ]
 
 [[package]]
+name = "kuzu"
+version = "0.4.2"
+description = "Highly scalable, extremely fast, easy-to-use embeddable graph database"
+optional = false
+python-versions = "*"
+files = [
+    {file = "kuzu-0.4.2-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:9aab3f86cf2a81f437200da1208234e8f46994dcd5bc1aaf49700fe11e1bdb1d"},
+    {file = "kuzu-0.4.2-cp310-cp310-macosx_11_0_x86_64.whl", hash = "sha256:c46fff301a8d10384529c852518b40d6c2dd0989470ec35592bd9f6111452df4"},
+    {file = "kuzu-0.4.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:02022da43d473925a5d8842e86405f10695e26b86ed9f0cba4cd7221bf4e9eec"},
+    {file = "kuzu-0.4.2-cp310-cp310-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:68c98a488d68b8093184af579fd87f744fb1ebee51c84c36118c611ee3c8a65d"},
+    {file = "kuzu-0.4.2-cp310-cp310-win_amd64.whl", hash = "sha256:4867ed80dc50ff76534a3881ab74284f792549ac5ddd1d14e1a8659fba6c6695"},
+    {file = "kuzu-0.4.2-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:ca8d5ec379e5ac97a93d0e60f2c760abf36801e4bb8039c25e6c7cb0f9474a0f"},
+    {file = "kuzu-0.4.2-cp311-cp311-macosx_11_0_x86_64.whl", hash = "sha256:40db5765de249bddb9a987c0a6f5b855c3c1e77f5582de85280355815a33649b"},
+    {file = "kuzu-0.4.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:cf3cae191e2488a4065bea904b001ea062138e2a58bb53c815972e9fa5416243"},
+    {file = "kuzu-0.4.2-cp311-cp311-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:f713529a8d4f03a6181b4f4b9b886bfdb878f9018b426dfc9e0b0e5b8bd7ff42"},
+    {file = "kuzu-0.4.2-cp311-cp311-win_amd64.whl", hash = "sha256:f37cc5d7d89fe6261710a6565785bdf7462b0339d727dc3b1986dc0f06443f34"},
+    {file = "kuzu-0.4.2-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:8e88fbed62179f83e4539c651606ed43ead80851a6b509850b77d02da4361818"},
+    {file = "kuzu-0.4.2-cp312-cp312-macosx_11_0_x86_64.whl", hash = "sha256:3bcdb7409717fdd6e776241cf1ec53f2305830f659b80de2c6f46e461ca38c8f"},
+    {file = "kuzu-0.4.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:01f414d602a8a010bfe9c71ad220ee29bdac788f421c946983229b76dc7f269b"},
+    {file = "kuzu-0.4.2-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:f09d9925c6d092c2edaad39dfee5c502ce4e252bc2bf8a920e726c12465f9572"},
+    {file = "kuzu-0.4.2-cp312-cp312-win_amd64.whl", hash = "sha256:74426de4fe774c4fc9398ef2bbb2bef3bf7832804aa176ead0a2a4ca143ce5b6"},
+    {file = "kuzu-0.4.2-cp37-cp37m-macosx_11_0_x86_64.whl", hash = "sha256:5b9c66f95c4ff68ce412aa31f6415edcee3abff8301b258159ad460760e89478"},
+    {file = "kuzu-0.4.2-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:5bc8b63de839dd44066dffa46f5452bcce3feb217c493fbcbd6e7afdcbe55c77"},
+    {file = "kuzu-0.4.2-cp37-cp37m-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:5b3af04c53fd7143e035a0605d7e8697588adf6977e8c442c8d541fac1fe1ca5"},
+    {file = "kuzu-0.4.2-cp37-cp37m-win_amd64.whl", hash = "sha256:96cdd3bc925eedc93defa682b9d0c67722f8fefd164618a51d3b61b31a3b4749"},
+    {file = "kuzu-0.4.2-cp38-cp38-macosx_11_0_arm64.whl", hash = "sha256:7fc701ce9ada01a5c1534c790d9be99edbb85137d830af1d7643aff1aa883871"},
+    {file = "kuzu-0.4.2-cp38-cp38-macosx_11_0_x86_64.whl", hash = "sha256:fb0bda4b1fa16322c4c03f19dd77996d65754401d6a01720bb8b34385f363432"},
+    {file = "kuzu-0.4.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:fa60ee0bc4665fffdbf1ae3d1291fe13eca9152129b97ec9d6e141851ccab380"},
+    {file = "kuzu-0.4.2-cp38-cp38-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:bde89f685ce00c1096c05177f3923abf24624d19994ce003c8987f799e0b7aee"},
+    {file = "kuzu-0.4.2-cp38-cp38-win_amd64.whl", hash = "sha256:29c03c2ac767fe39ec4a16200a2963ff5113715083c4abe92cde1a785dd7b974"},
+    {file = "kuzu-0.4.2-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:4bbaafd994e053cef2a72679da8790b414d9fee48734d4e77aee2c54d1c869b6"},
+    {file = "kuzu-0.4.2-cp39-cp39-macosx_11_0_x86_64.whl", hash = "sha256:df1a8ca7c78f7d147d2aa3f83566c27ef5304f49c6e61a534a6d2caf5eb2ac23"},
+    {file = "kuzu-0.4.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:75015334056a8cb6490e2bb18a72bbb21de87d786941cbac99435d6e5d5105b4"},
+    {file = "kuzu-0.4.2-cp39-cp39-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:feaa00af9dc007075bf77ea0d8f228e73ed5c00f6c4c79bef22228760833c06d"},
+    {file = "kuzu-0.4.2-cp39-cp39-win_amd64.whl", hash = "sha256:fea7e9fa79fc97f169e4a103ded7af331836f7fbf168b48d930bb83e8eb1200c"},
+    {file = "kuzu-0.4.2.tar.gz", hash = "sha256:d20327185340e57a2fd0eea53a8ce29c6138b78639a24eb26b924d32f1397808"},
+]
+
+[[package]]
 name = "llama-index"
 version = "0.10.39"
 description = "Interface between LLMs and your data"
@@ -786,6 +839,21 @@ typing-inspect = ">=0.8.0"
 wrapt = "*"
 
 [[package]]
+name = "llama-index-embeddings-mistralai"
+version = "0.1.4"
+description = "llama-index embeddings mistralai integration"
+optional = false
+python-versions = ">=3.9,<4.0"
+files = [
+    {file = "llama_index_embeddings_mistralai-0.1.4-py3-none-any.whl", hash = "sha256:637539e57d8ff1d6b9d5b09adb2b0793d09a9afa23ad8cd84c68dc3ab3275b83"},
+    {file = "llama_index_embeddings_mistralai-0.1.4.tar.gz", hash = "sha256:7bd2470b50ab4df43a28ecf3fa18739e8ce06f448d159e1c6a1e28e1c7142c63"},
+]
+
+[package.dependencies]
+llama-index-core = ">=0.10.1,<0.11.0"
+mistralai = ">=0.1.3"
+
+[[package]]
 name = "llama-index-embeddings-openai"
 version = "0.1.10"
 description = "llama-index embeddings openai integration"
@@ -797,6 +865,21 @@ files = [
 ]
 
 [package.dependencies]
+llama-index-core = ">=0.10.1,<0.11.0"
+
+[[package]]
+name = "llama-index-graph-stores-kuzu"
+version = "0.1.4"
+description = "llama-index graph stores kuzu integration"
+optional = false
+python-versions = "<4.0,>=3.8.1"
+files = [
+    {file = "llama_index_graph_stores_kuzu-0.1.4-py3-none-any.whl", hash = "sha256:c6d1fd49f9c67a3f72ccb0c76b9d71f0c6ef63f3493e0ca05ebdac3f90cf9c61"},
+    {file = "llama_index_graph_stores_kuzu-0.1.4.tar.gz", hash = "sha256:2760b782c9f86570c52c1cf3177efdd0c563b857bf698f4d64a5580afe79a9e9"},
+]
+
+[package.dependencies]
+kuzu = ">=0.4.0,<0.5.0"
 llama-index-core = ">=0.10.1,<0.11.0"
 
 [[package]]
@@ -1023,6 +1106,24 @@ files = [
 [package.dependencies]
 httpx = ">=0.20.0"
 pydantic = ">=1.10"
+
+[[package]]
+name = "loguru"
+version = "0.7.2"
+description = "Python logging made (stupidly) simple"
+optional = false
+python-versions = ">=3.5"
+files = [
+    {file = "loguru-0.7.2-py3-none-any.whl", hash = "sha256:003d71e3d3ed35f0f8984898359d65b79e5b21943f78af86aa5491210429b8eb"},
+    {file = "loguru-0.7.2.tar.gz", hash = "sha256:e671a53522515f34fd406340ee968cb9ecafbc4b36c679da03c18fd8d0bd51ac"},
+]
+
+[package.dependencies]
+colorama = {version = ">=0.3.4", markers = "sys_platform == \"win32\""}
+win32-setctime = {version = ">=1.0.0", markers = "sys_platform == \"win32\""}
+
+[package.extras]
+dev = ["Sphinx (==7.2.5)", "colorama (==0.4.5)", "colorama (==0.4.6)", "exceptiongroup (==1.1.3)", "freezegun (==1.1.0)", "freezegun (==1.2.2)", "mypy (==v0.910)", "mypy (==v0.971)", "mypy (==v1.4.1)", "mypy (==v1.5.1)", "pre-commit (==3.4.0)", "pytest (==6.1.2)", "pytest (==7.4.0)", "pytest-cov (==2.12.1)", "pytest-cov (==4.1.0)", "pytest-mypy-plugins (==1.9.3)", "pytest-mypy-plugins (==3.0.0)", "sphinx-autobuild (==2021.3.14)", "sphinx-rtd-theme (==1.3.0)", "tox (==3.27.1)", "tox (==4.11.0)"]
 
 [[package]]
 name = "marshmallow"
@@ -2117,6 +2218,20 @@ doc = ["reno", "sphinx"]
 test = ["pytest", "tornado (>=4.5)", "typeguard"]
 
 [[package]]
+name = "termcolor"
+version = "2.4.0"
+description = "ANSI color formatting for output in terminal"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "termcolor-2.4.0-py3-none-any.whl", hash = "sha256:9297c0df9c99445c2412e832e882a7884038a25617c60cea2ad69488d4040d63"},
+    {file = "termcolor-2.4.0.tar.gz", hash = "sha256:aab9e56047c8ac41ed798fa36d892a37aca6b3e9159f3e0c24bc64a9b3ac7b7a"},
+]
+
+[package.extras]
+tests = ["pytest", "pytest-cov"]
+
+[[package]]
 name = "tiktoken"
 version = "0.7.0"
 description = "tiktoken is a fast BPE tokeniser for use with OpenAI's models"
@@ -2426,6 +2541,20 @@ socks = ["pysocks (>=1.5.6,!=1.5.7,<2.0)"]
 zstd = ["zstandard (>=0.18.0)"]
 
 [[package]]
+name = "win32-setctime"
+version = "1.1.0"
+description = "A small Python utility to set file creation time on Windows"
+optional = false
+python-versions = ">=3.5"
+files = [
+    {file = "win32_setctime-1.1.0-py3-none-any.whl", hash = "sha256:231db239e959c2fe7eb1d7dc129f11172354f98361c4fa2d6d2d7e278baa8aad"},
+    {file = "win32_setctime-1.1.0.tar.gz", hash = "sha256:15cf5750465118d6929ae4de4eb46e8edae9a5634350c01ba582df868e932cb2"},
+]
+
+[package.extras]
+dev = ["black (>=19.3b0)", "pytest (>=4.6.2)"]
+
+[[package]]
 name = "wrapt"
 version = "1.16.0"
 description = "Module for decorators, wrappers and monkey patching."
@@ -2610,4 +2739,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "50056f3c5ddeba113896fd21864d3dd7493cce84a3d33e699aef0a14032077f1"
+content-hash = "2bb8232189319d4d020f5a1b5a75c06f0db06ae06f0877c548ca7a13ae638a68"
