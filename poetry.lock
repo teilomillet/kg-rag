@@ -1272,6 +1272,20 @@ llama-index-core = ">=0.10.7,<0.11.0"
 llama-parse = ">=0.4.0,<0.5.0"
 
 [[package]]
+name = "llama-index-readers-wikipedia"
+version = "0.1.4"
+description = "llama-index readers wikipedia integration"
+optional = false
+python-versions = "<4.0,>=3.8.1"
+files = [
+    {file = "llama_index_readers_wikipedia-0.1.4-py3-none-any.whl", hash = "sha256:6973cfc0ff95e151b88576ed37dad8a70ec10d5fd75dfac8604b7d4cd545fef5"},
+    {file = "llama_index_readers_wikipedia-0.1.4.tar.gz", hash = "sha256:1785a0c2d0e1b166e5483f8452f5d5f77383d46eb3d6d85b1e5c3d176e2c5805"},
+]
+
+[package.dependencies]
+llama-index-core = ">=0.10.1,<0.11.0"
+
+[[package]]
 name = "llama-parse"
 version = "0.4.3"
 description = "Parse files into RAG-Optimized formats."
@@ -2752,6 +2766,20 @@ socks = ["pysocks (>=1.5.6,!=1.5.7,<2.0)"]
 zstd = ["zstandard (>=0.18.0)"]
 
 [[package]]
+name = "wikipedia"
+version = "1.4.0"
+description = "Wikipedia API for Python"
+optional = false
+python-versions = "*"
+files = [
+    {file = "wikipedia-1.4.0.tar.gz", hash = "sha256:db0fad1829fdd441b1852306e9856398204dc0786d2996dd2e0c8bb8e26133b2"},
+]
+
+[package.dependencies]
+beautifulsoup4 = "*"
+requests = ">=2.0.0,<3.0.0"
+
+[[package]]
 name = "win32-setctime"
 version = "1.1.0"
 description = "A small Python utility to set file creation time on Windows"
@@ -2950,4 +2978,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "25522d9ee4484b71ff95c684734f96ee863407b06f56d1090c6b51f862195ec3"
+content-hash = "4b2d5ee970fcfdd2ae8be7a042d7d17fd71b257b67ff98fd051725e2c36f8cae"

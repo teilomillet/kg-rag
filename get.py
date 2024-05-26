@@ -22,20 +22,24 @@ class QueryHandler:
         )
 
     def query(self):
-        # Direct prompt for user input
-        user_input = input("Please enter your query: ")
-        try:
-            # Process the query and print the result
-            response = self.chain.run(user_input)
-            print(f"Query result: {response}")
-        except Exception as e:
-            # Handle any exceptions that may occur during query processing
-            print(f"An error occurred during query processing: {e}")
+        print("Enter your query or type 'exit' to stop:")
+        while True:
+            user_input = input("Your query: ")
+            if user_input.lower() in {"exit", "quit", ":q", "q"}:
+                print("Exiting query handler.")
+                break  # Exit the loop if the user types 'exit'
+
+            try:
+                # Process the query and print the result
+                response = self.chain.invoke(user_input)
+                print(f"Query result: {response}")
+            except Exception as e:
+                # Handle any exceptions that may occur during query processing
+                print(f"An error occurred during query processing: {e}")
 
 
 def main():
-    handler = QueryHandler()
-    handler.query()
+    fire.Fire(QueryHandler().query)
 
 
 if __name__ == "__main__":
