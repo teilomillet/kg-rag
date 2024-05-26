@@ -1,3 +1,4 @@
 *_db/
-
-
+*db/
+*.db
+doctest/

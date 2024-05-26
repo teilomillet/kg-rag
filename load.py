@@ -16,25 +16,18 @@ from llama_index.core.schema import MetadataMode
 from kuzu import Database
 from llama_index.graph_stores.kuzu import KuzuGraphStore
 from llama_index.embeddings.mistralai import MistralAIEmbedding
+from loguru import logger
 
 
 class DocumentIndexer:
     def __init__(self, db_name="default_db"):
-        """
-        Initialize the document indexer with a specific database.
-
-        :param db_name: Name of the database to connect to.
-        """
+        logger.info(f"Initializing database connection: {db_name}")
         self.db = Database(db_name)
         self.graph_store = KuzuGraphStore(self.db)
+        logger.debug("Database and graph store initialized successfully.")
 
     def build_pipeline(self):
-        """
-        Build the ingestion pipeline with transformations using Groq model.
-
-        :param llm: Groq language model instance.
-        :return: Configured ingestion pipeline.
-        """
+        logger.info("Building the document ingestion pipeline.")
         llm = Groq(model="llama3-70b-8192", api_key=Config.GROQ_API_KEY)
         transformations = [
             SentenceSplitter(chunk_size=1024, chunk_overlap=20),
@@ -44,16 +37,15 @@ class DocumentIndexer:
         return IngestionPipeline(transformations=transformations)
 
     def index_documents(self, directory_path, append=False):
-        """
-        Load documents from a directory and index them into the graph database.
-
-        :param directory_path: Path to the directory containing documents to index.
-        :param append: Flag to append to the existing database or create new entries.
-        """
-        # Load the documents
+        logger.info(f"Loading documents from {directory_path}")
         documents = SimpleDirectoryReader(directory_path).load_data()
+        if not documents:
+            logger.warning(
+                "No documents loaded. Check the directory path and data format."
+            )
+        else:
+            logger.info(f"Loaded {len(documents)} documents")
 
-        # Define the LLM
         embed = MistralAIEmbedding(
             model_name="mistral-embed", api_key=Config.MISTRAL_API_KEY
         )
@@ -63,9 +55,9 @@ class DocumentIndexer:
         pipeline = self.build_pipeline()
         processed_documents = pipeline.run(documents)
 
+        logger.info("Documents processed, initializing knowledge graph index.")
         storage_context = StorageContext.from_defaults(graph_store=self.graph_store)
 
-        # Initialize the index and choose the update mode
         if append:
             index = KnowledgeGraphIndex(nodes=[], storage_context=storage_context)
         else:
@@ -75,37 +67,28 @@ class DocumentIndexer:
                 storage_context=storage_context,
             )
 
-        # Commit changes to the graph database
-        index  # Assuming commit() is the method to finalize changes
-        print("Indexing complete.")
+        # Assuming 'commit' or equivalent operation is necessary here
+        # index.commit()  # Uncomment if such a method exists
+        logger.success("Indexing complete.")
 
 
 def main(*args):
-    """
-    Main function to run the document indexer.
-    Usage:
-      python script_name.py [db_name] dir_path
-
-    If db_name is provided, append to the given database. If not, create a new one.
-    """
+    logger.add("document_indexing.log", rotation="1 week")  # Save logs to a file
     if len(args) == 1:
-        # Assume default DB and new index
         directory_path = args[0]
         db_name = "default_db"
         append = False
     elif len(args) == 2:
-        # Provided DB name and path
         db_name = args[0]
         directory_path = args[1]
         append = True
     else:
-        raise ValueError(
-            "Incorrect number of arguments provided. Usage: python script_name.py [db_name] dir_path"
-        )
+        logger.error("Incorrect number of arguments provided.")
+        raise ValueError("Usage: python script_name.py [db_name] dir_path")
 
     indexer = DocumentIndexer(db_name)
     indexer.index_documents(directory_path, append)
-    print(
+    logger.info(
         f"Documents from {directory_path} have been processed in database '{db_name}'."
     )
 
