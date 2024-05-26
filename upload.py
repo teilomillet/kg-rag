@@ -31,7 +31,7 @@ class DocumentUploader:
 
         Settings.llm = self.llm
         Settings.embed_model = self.embed
-        Settings.chunk_size = 1536
+        Settings.chunk_size = 512
         logger.debug("Settings configured.")
 
     def upload(self, input):
